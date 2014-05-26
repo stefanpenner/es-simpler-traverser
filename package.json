@@ -1,6 +1,6 @@
 {
   "name": "es-simpler-traverser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "basic esprima AST traverser",
   "main": "index.js",
   "scripts": {
