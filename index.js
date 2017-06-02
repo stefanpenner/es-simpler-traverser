@@ -1,9 +1,9 @@
-module.exports = function traverse(node, visitor) {
+module.exports = function traverse(node, visitor, parent) {
   var key, child, children;
 
   if (node && typeof node === 'object') {
     if (typeof visitor.enter === 'function') {
-      visitor.enter(node);
+      visitor.enter(node, parent);
     }
 
     children = Object.keys(node);
@@ -12,11 +12,11 @@ module.exports = function traverse(node, visitor) {
       key = children[i];
       child = node[key];
 
-      traverse(child, visitor);
+      traverse(child, visitor, node);
     }
 
     if (typeof visitor.exit === 'function') {
-      visitor.exit(node);
+      visitor.exit(node, parent);
     }
   }
 };
